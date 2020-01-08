@@ -1,0 +1,54 @@
+{% extends "base_auth.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col s3"></div>
+        <div class="col s6 login-form">
+          <form method="POST">{% csrf_token %}
+            <h1 class="center-align">Register</h1>
+            <div class="row">
+              <div class="input-field col s6">
+                <label for="">First Name</label>
+                {{ form.first_name}}
+              </div>
+              <div class="input-field col s6">
+                <label for="">Last Name</label>
+                {{ form.last_name}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <label for="">Username</label>
+                {{ form.username}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <label for="">Email</label>
+                {{ form.email}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <label for="">Password</label>
+                {{ form.password1}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <label for="">Verified Password</label>
+                {{ form.password2}}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="center-align">
+                <input class="btn" type="submit" value="Signup"><a href="{% url 'accounts:login' %}"> Login</a>
+              </div>
+          </form>
+        </div>
+        <div class="col s3"></div>
+      </div>
+    </div>
+  {% endblock %}

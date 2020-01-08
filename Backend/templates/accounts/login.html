@@ -1,0 +1,35 @@
+{% extends "base_auth.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col s12"></div>
+  </div>
+  <div class="row">
+    <div class="col l3"></div>
+    <div class="col s12 l6 login-form">
+      <form method="POST">{% csrf_token %}
+        <h1 class="center-align">Login</h1>
+        <div class="row">
+          <div class="input-field col s12">
+            <label>Username</label>
+            <input type="text" name="username" class="" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <label>Password</label>
+            <input type="password" name="password" class="" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="center-align">
+            <input class="btn" type="submit" value="Login"><a href="{% url 'accounts:signup' %}"> Register</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col l3"></div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+body{
+  color: black;
+}
+header, main, footer {
+  padding-left: 300px;
+}
+
+nav{
+  height: 110px;
+  width: 100%;
+  background-color: white;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0,0,0,0.14);
+}
+
+.row .col.offset-m1{
+  margin: 0;
+}
+
+.sidenav{
+  box-shadow: none;
+  border-right: 1px solid rgba(0,0,0,0.14);
+}
+
+h1 {
+  margin: 0;
+  padding: 22px 0 0 0;
+  color: #ee6e73;
+font-weight: 300;
+}
+
+.table-container{
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.add-btn{
+  margin: 10px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}

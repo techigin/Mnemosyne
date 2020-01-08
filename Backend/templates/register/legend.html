@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'register/css/legend.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h2 class="left">Legend</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Transaction Category</th>
+          <th>Transaction Type</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sym in legend %}
+        <tr>
+          <td>{{sym.code}}</td>
+          <td>{{sym.transactions_category}}</td>
+          <td>{{sym.transactions_type}}</td>
+          <td>
+            <a class="" href="{% url 'register:code_del' sym.id %}"><i class="material-icons">close</i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <a class="add-btn right btn-floating btn-large waves-effect waves-light red modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+</div>
+<div id="modal1" class="modal">
+  <form method="post">
+    {% csrf_token %}
+    <div class="modal-content">
+      {{form}}
+    </div>
+    <div class="modal-footer">
+      <input type="submit" class="modal-close waves-effect waves-green btn-flat">
+
+    </div>
+  </form>
+</div>
+{% endblock %}

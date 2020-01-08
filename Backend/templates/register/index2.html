@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="">
+    <h3 class="right-align">Balance: ${{bal}}</h3>
+  </div>
+  <div class="table-container">
+    <table class="striped ">
+      <thead>
+
+        <tr>
+          <th>Code</th>
+          <th>Date</th>
+          <th>Transaction Description</th>
+          <th>Amount</th>
+          <th>Reconcile</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for tran in transactions %}
+        <tr>
+          <td>{{tran.code}}</td>
+          <td>{{tran.date}}</td>
+          <td>{{tran.transactions_description}}</td>
+          <td>${{tran.amount}}</td>
+          <td></td>
+          <td>
+            <a class="" href="{% url 'register:tran_del' tran.id %}"><i class="material-icons">close</i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <a class="add-btn right btn-floating btn-large waves-effect waves-light red modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+</div>
+<div id="modal1" class="modal">
+  <form method="post">
+    {% csrf_token %}
+    <div class="modal-content">
+
+      {{form}}
+
+    </div>
+    <div class="modal-footer">
+      <input value="add" type="submit" class="modal-close waves-effect waves-green btn-flat">
+    </div>
+
+  </form>
+</div>
+{% endblock %}
